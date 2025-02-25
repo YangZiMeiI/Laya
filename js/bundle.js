@@ -27,7 +27,17 @@
       this.chouquImg.width = 288;
       this.chouquImg.height = 183;
       Laya.stage.addChild(this.videoJianSheng);
+      this.videoJianSheng.muted = true;
       this.videoJianSheng.videoTexture.on("ended", this, this.onVideoComplete);
+      this.videoJianSheng.play();
+    }
+    onVideo() {
+      this.videoJianSheng = new Laya.VideoNode();
+      this.videoJianSheng.load("resources/libai.mp4");
+      this.videoJianSheng.pos(0, 0);
+      this.videoJianSheng.width = 720;
+      this.videoJianSheng.height = 1280;
+      Laya.stage.addChild(this.videoJianSheng);
       this.videoJianSheng.play();
     }
     onVideoComplete() {
@@ -107,6 +117,9 @@
       this.videoJianSheng.play();
     }
   };
+  __decorateClass([
+    property({ type: Laya.Image })
+  ], Main.prototype, "startImg", 2);
   Main = __decorateClass([
     regClass("e60XQm7tTY2BwFAdxb8D1g")
   ], Main);
